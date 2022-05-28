@@ -2,15 +2,15 @@ CCFLAGS=-Wall -Wextra -Werror -Iinclude
 
 all: output main.o
 
-bin: 
-	mkdir bin
+bin1: 
+	mkdir bin1
 
-output: bin/main.o
+output: bin1/main.o
 	g++ main.o -o output
 
-bin/main.o: main.cpp | bin
+bin1/main.o: main.cpp | bin1
 	g++ -c main.cpp -std=c++11
 
 clean:
-	rm -rf bin output *.o
+	rm -rf bin1 output *.o
 
