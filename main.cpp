@@ -22,7 +22,7 @@ using namespace std;
 vector<string> file_names;
 std::mutex m2, m3, m4;
 
-const int N = 1000; // # of integers in file
+//onst int N = 1000; // # of integers in file
 const int SIZE = 100; // # of ints read at a time //mb???
 
 void print_file(string ans) {
@@ -79,6 +79,8 @@ void read_file(mutex &m, FILE *f) {
 		fwrite(&buff[0], sizeof(buff[0]), M, f1);
 		fclose(f1);
 		m2.unlock();
+
+		cout << "New file: " << new_file_name << endl;
 
 		//print_file(ss.str() + "_" + ss2.str());
 
@@ -294,9 +296,10 @@ string find_max_multi_thread(vector<string> v, int req_num_treads) /////////////
 
 }
 
-int main() {
+int main(int argc, char **argv) {
 	srand(time(NULL));
 
+	/*
 	//generates file // comment if necessary
 	int a[N];
 	for (int i = 0; i < N; ++i) {
@@ -308,8 +311,10 @@ int main() {
 	assert(f1);
 	size_t r1 = fwrite(a, sizeof a[0], N, f1);
 	fclose(f1);
+	*/
 
-	FILE *f2 = fopen("file.txt", "rb");
+	//FILE *f2 = fopen("file.txt", "rb");
+	FILE *f2 = fopen(argv[1], "rb");
 
 	std::mutex m;
 
